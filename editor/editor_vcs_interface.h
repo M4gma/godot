@@ -56,6 +56,7 @@ protected:
 	Array _get_file_diff(String p_file_path);
 	bool _shut_down();
 	String _get_project_name();
+	String _get_project_version();
 	String _get_vcs_name();
 
 public:
@@ -74,6 +75,7 @@ public:
 	Array get_file_diff(String p_file_path);
 	bool shut_down();
 	String get_project_name();
+	String get_project_version();
 	String get_vcs_name();
 
 	EditorVCSInterface();

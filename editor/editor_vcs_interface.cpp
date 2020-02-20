@@ -40,6 +40,7 @@ void EditorVCSInterface::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("_get_vcs_name"), &EditorVCSInterface::_get_vcs_name);
 	ClassDB::bind_method(D_METHOD("_shut_down"), &EditorVCSInterface::_shut_down);
 	ClassDB::bind_method(D_METHOD("_get_project_name"), &EditorVCSInterface::_get_project_name);
+	ClassDB::bind_method(D_METHOD("_get_project_version"), &EditorVCSInterface::_get_project_version);
 	ClassDB::bind_method(D_METHOD("_get_modified_files_data"), &EditorVCSInterface::_get_modified_files_data);
 	ClassDB::bind_method(D_METHOD("_commit", "msg"), &EditorVCSInterface::_commit);
 	ClassDB::bind_method(D_METHOD("_get_file_diff", "file_path"), &EditorVCSInterface::_get_file_diff);
@@ -58,6 +59,7 @@ void EditorVCSInterface::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_file_diff", "file_path"), &EditorVCSInterface::get_file_diff);
 	ClassDB::bind_method(D_METHOD("shut_down"), &EditorVCSInterface::shut_down);
 	ClassDB::bind_method(D_METHOD("get_project_name"), &EditorVCSInterface::get_project_name);
+	ClassDB::bind_method(D_METHOD("get_project_version"), &EditorVCSInterface::get_project_version);
 	ClassDB::bind_method(D_METHOD("get_vcs_name"), &EditorVCSInterface::get_vcs_name);
 }
 
@@ -99,6 +101,10 @@ bool EditorVCSInterface::_shut_down() {
 String EditorVCSInterface::_get_project_name() {
 
 	return String();
+}
+
+String EditorVCSInterface::_get_project_version() {
+	return "";
 }
 
 String EditorVCSInterface::_get_vcs_name() {
@@ -168,6 +174,10 @@ bool EditorVCSInterface::shut_down() {
 String EditorVCSInterface::get_project_name() {
 
 	return call("_get_project_name");
+}
+
+String EditorVCSInterface::get_project_version() {
+	return call("_get_project_version");
 }
 
 String EditorVCSInterface::get_vcs_name() {
